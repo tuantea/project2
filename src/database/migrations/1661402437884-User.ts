@@ -13,7 +13,7 @@ export class User1661402437884 implements MigrationInterface {
         id int(10) AUTO_INCREMENT PRIMARY KEY NOT NULL,
         tenantId int(10) NOT NULL,
         fullname varchar(10) NOT NULL,
-        password varchar(50) NOT NULL,
+        password varchar(100) NOT NULL,
         code varchar(50),
         note varchar(50),
         isEnabled int(2),

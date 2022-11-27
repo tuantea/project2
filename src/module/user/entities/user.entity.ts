@@ -6,24 +6,21 @@ export class User {
   id: number;
 
   @Column()
-  name: string;
+  tenantId: number;
 
   @Column()
-  email: string;
+  fullname: string;
 
   @Column()
   password: string;
   
   @Column()
-  user_role_id:number;
+  code:string;
 
   @Column()
-  gender:number;
+  note:string;
 
   @Column()
-  dob:Date;
-
-  @Column()
-  phoneNumber:number;
+  isEnabled:number;
 
 }
