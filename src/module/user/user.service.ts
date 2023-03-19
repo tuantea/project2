@@ -39,7 +39,7 @@ export class UserService {
     return this.userRepo.find({ where: { tenantId: id }});
   }
 
-  findOne(id: number) {
+  async findOne(id: number) {
     return this.userRepo.findOne({ where: { id: id } });
   }
   findName(name: string) {
@@ -51,10 +51,10 @@ export class UserService {
       throw new HttpException('Email does not exist', HttpStatus.NOT_FOUND);
     return user;
   }
-  update(id: number, updateUserDto: UpdateUserDto) {
-    if (this.userRepo.findOne({ where: { id: id } })) {
+  async update(id: number, updateUserDto: UpdateUserDto) {
+    const user=await this.findOne(id);
+    if (user!==null) {
       updateUserDto.id = id;
-      console.log(updateUserDto);
       return this.userRepo.save(updateUserDto);
     }
     return `Accout khong ton tai`;

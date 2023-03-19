@@ -29,12 +29,12 @@ export class UserController {
     return this.userService.addUsers(id,createUserDto);
   }
 
-  @Get(':id')
+  @Get('/all/:id')
   findAll(@Param('id') id: number) {
     return this.userService.findAll(id);
   }
 
-  @Get(':id')
+  @Get('/:id')
   findOne(@Param('id') id: string) {
     return this.userService.findOne(+id);
   }

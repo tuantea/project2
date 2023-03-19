@@ -7,6 +7,8 @@ import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './module/auth/auth.module';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtAuthGuard } from './module/auth/jwt-auth.guard';
+import { RightsModule } from './module/rights/rights.module';
+import { RolesModule } from './module/roles/roles.module';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
@@ -25,6 +27,8 @@ dotenv.config();
     }),
     UserModule,
     AuthModule,
+    RightsModule,
+    RolesModule,
   ],
   controllers: [AppController],
   providers: [AppService, { provide: APP_GUARD, useClass: JwtAuthGuard }],

@@ -50,7 +50,8 @@ export class User1661402437884 implements MigrationInterface {
     );
     await queryRunner.query(
       `CREATE TABLE role2rights (
-                userId int(11)  PRIMARY KEY NOT NULL,
+                id int(10) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+                userId int(11)   NOT NULL,
                 roleId int(11)   NOT NULL,
                 name varchar(50) NOT NULL,
                 CONSTRAINT FK_role_right FOREIGN KEY (roleId) REFERENCES roles(id) ON UPDATE CASCADE ON DELETE CASCADE,
